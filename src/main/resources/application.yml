@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: zuul
+server:
+  port: 8040
+eureka:
+  instance:
+     hostname: localhost   # 指定该Eureka实例的主机名
+     prefer-ip-address: true
+  client:
+     service-url:
+       defaultZone: http://localhost:8760/eureka/
+zuul:
+   routes:
+      user:
+        path: /user/**
+        serviceId: service1
+      order:
+        path: /order/**
+        serviceId: service2
+
